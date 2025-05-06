@@ -95,55 +95,56 @@
   <div class="container">
     <h1 class="title">Sign Up Form</h1>
 
-    <form>
+    <form action="{{ route('register.add') }}" method="POST">
+      @csrf
+
       <div class="form-group">
         <label for="fname">First Name</label>
-        <input type="text" id="fname" placeholder="Enter first name" />
+        <input type="text" id="fname" name="first_name" placeholder="Enter first name" required />
       </div>
 
       <div class="form-group">
         <label for="lname">Last Name</label>
-        <input type="text" id="lname" placeholder="Enter last name" />
+        <input type="text" id="lname" name="last_name" placeholder="Enter last name" required />
       </div>
 
       <div class="form-group">
         <label>Gender</label>
         <div class="radio-group">
-          <label><input type="radio" name="gender" /> Male</label>
-          <label><input type="radio" name="gender" /> Female</label>
-          <label><input type="radio" name="gender" /> Other</label>
+          <label><input type="radio" name="gender" value="male" required /> Male</label>
+          <label><input type="radio" name="gender" value="female" /> Female</label>
+          <label><input type="radio" name="gender" value="other" /> Other</label>
         </div>
       </div>
 
       <div class="form-group">
         <label for="nationality">Nationality</label>
-        <select id="nationality">
+        <select id="nationality" name="nationality" required>
           <option value="">--Select--</option>
-          <option>Malaysia</option>
-          <option>Inggris</option>
-          <option>Amerika</option>
-          <option>Indonesia</option>
-          <option>China</option>
+          <option value="Malaysia">Malaysia</option>
+          <option value="Inggris">Inggris</option>
+          <option value="Amerika">Amerika</option>
+          <option value="Indonesia">Indonesia</option>
+          <option value="China">China</option>
         </select>
       </div>
 
       <div class="form-group">
         <label>Languages Spoken</label>
         <div class="checkbox-group">
-          <label><input type="checkbox" name="language" /> Bahasa Indonesia</label>
-          <label><input type="checkbox" name="language" /> English</label>
-          <label><input type="checkbox" name="language" /> Other</label>
+          <label><input type="checkbox" name="language[]" value="Bahasa Indonesia" /> Bahasa Indonesia</label>
+          <label><input type="checkbox" name="language[]" value="English" /> English</label>
+          <label><input type="checkbox" name="language[]" value="Other" /> Other</label>
         </div>
       </div>
 
       <div class="form-group">
         <label for="bio">Bio</label>
-        <textarea id="bio" rows="6" placeholder="Write something..."></textarea>
+        <textarea id="bio" name="bio" rows="6" placeholder="Write something..." required></textarea>
       </div>
 
-      <a href="{{ route('welcome') }}" class="submit-btn">Sign Up</a>
+      <button type="submit" class="submit-btn">Sign Up</button>
     </form>
   </div>
 </body>
 </html>
-

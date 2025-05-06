@@ -48,7 +48,7 @@
 </head>
 <body>
   <div class="card">
-    <p class="title">Selamat Datang!</p>
+    <p class="title">Selamat Datang! {{ session('full_name') }}</p>
     <p class="message">Terima kasih telah bergabung di <strong>SanberBook</strong>.<br/>Sosial media kita bersama.</p>
   </div>
 </body>
